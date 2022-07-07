@@ -8,16 +8,22 @@ import javax.persistence.Id;
 public class Category {
 	
 	@Id
-	private int id;
+	private Long id;
 	
 	@Column(name = "Cat_Name")
 	private String CatName;
+	
+	@Column (name = "periodo_fiscal")
+	private String PerFiscal;
+	
+	@Column (name = "cantidad")
+	private String Cantidad;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -29,10 +35,30 @@ public class Category {
 		CatName = catName;
 	}
 
+	public String getPerFiscal() {
+		return PerFiscal;
+	}
+
+	public void setPerFiscal(String perFiscal) {
+		PerFiscal = perFiscal;
+	}
+
+	public String getCantidad() {
+		return Cantidad;
+	}
+
+	public void setCantidad(String cantidad) {
+		Cantidad = cantidad;
+	}
+
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", CatName=" + CatName + "]";
+		return "Category [id=" + id + ", CatName=" + CatName + ", PerFiscal=" + PerFiscal + ", Cantidad=" + Cantidad
+				+ "]";
 	}
-	
-	
+
+
+
+
+
 }
