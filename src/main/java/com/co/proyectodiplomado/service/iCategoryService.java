@@ -1,6 +1,7 @@
 package com.co.proyectodiplomado.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.co.proyectodiplomado.dao.Category;
 
@@ -10,10 +11,13 @@ public interface iCategoryService {
 
 	// Read Operation
 	List<Category> findAllCategories();
-	
-	//Update Operation
+
+	// Read by id
+	Optional<Category> findCategory(Long categoryId);
+
+	// Update Operation
 	Category updateCategory(Category category, Long categoryId);
-	
-	//Delete Operation
+
+	// Delete Operation
 	void deleteCateegoryById(Long categoryId);
 }

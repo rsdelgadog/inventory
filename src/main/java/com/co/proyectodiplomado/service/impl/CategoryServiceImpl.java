@@ -2,6 +2,7 @@ package com.co.proyectodiplomado.service.impl;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,12 @@ public class CategoryServiceImpl implements iCategoryService {
 	public List<Category> findAllCategories() {
 		return (List<Category>) categoryRepository.findAll();
 	}
-
+	
+	@Override
+	public Optional<Category> findCategory(Long categoryId) {
+		return categoryRepository.findById(categoryId) ;
+	}
+	
 	// Save
 	@Override
 	public Category saveCategory(Category category) {

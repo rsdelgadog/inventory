@@ -1,6 +1,8 @@
 package com.co.proyectodiplomado.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,25 +28,30 @@ public class CategoryController {
 		return categoryServiceImpl.saveCategory(category);
 	}
 
-	//Update
+	// Update
 	@PutMapping("/category/{id}")
-	public Category updateCategory(@RequestBody Category category,
-								   @PathVariable("id") Long categoryId)
-	{
+	public Category updateCategory(@RequestBody Category category, @PathVariable("id") Long categoryId) {
 		return categoryServiceImpl.updateCategory(category, categoryId);
 	}
-	
-	//Delete
+
+	// Delete
 	@DeleteMapping("/category/{id}")
 	public String deleteCategoryById(@PathVariable("id") Long categoryId) {
-		
-			categoryServiceImpl.deleteCateegoryById(categoryId);
-			return "Delete Succesfully";
-		
+
+		categoryServiceImpl.deleteCateegoryById(categoryId);
+		return "Delete Succesfully";
+
 	}
-	//Read
+
+	// Read
 	@GetMapping("/category")
 	public List<Category> fetchDepartmentList() {
 		return categoryServiceImpl.findAllCategories();
+	}
+
+	// Read by id
+	@GetMapping("/category/{id}")
+	public Optional<Category> findCategory(@PathVariable("id") Long categoryId) {
+		return categoryServiceImpl.findCategory(categoryId);
 	}
 }
